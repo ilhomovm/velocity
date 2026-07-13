@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#111;
+    overflow:hidden;
+}
+
+.container{
+    position:relative;
+    width:850px;
+    height:550px;
+    background:#1d1b24;
+    border:2px solid #ff5a1f;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,90,31,.5);
+    overflow:hidden;
+}
+
+/* FORMALAR */
+
+.form-box{
+    position:absolute;
+    width:50%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+}
+
+.form-box.login{
+    left:0;
+}
+
+.form-box.register{
+    right:0;
+}
+
+form{
+    width:100%;
+}
+
+form h1{
+    color:#fff;
+    font-size:38px;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+.input-box{
+    position:relative;
+    width:100%;
+    margin:25px 0;
+}
+
+.input-box input{
+    width:100%;
+    height:50px;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid #777;
+    outline:none;
+    color:#fff;
+    font-size:16px;
+    transition:.4s;
+}
+
+.input-box input:focus{
+    border-color:#ff5a1f;
+}
+
+.input-box input::placeholder{
+    color:#aaa;
+}
+
+.input-box i{
+    position:absolute;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+    color:#999;
+    font-size:20px;
+}
+
+.btn{
+    width:100%;
+    height:50px;
+    margin-top:15px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#ff8a00,#ff3c00);
+    color:#fff;
+    font-size:17px;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 0 15px rgba(255,90,31,.4);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(255,90,31,.8);
+}
+
+form p{
+    color:#bbb;
+    text-align:center;
+    margin-top:20px;
+}
+
+form a{
+    color:#ff5a1f;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* ORQA PANEL */
+
+.toggle-box{
+    position:absolute;
+    width:100%;
+    height:100%;
+    pointer-events:none;    
+}
+
+/* CHAP PANEL */
+
+.toggle-panel{
+    position:absolute;
+    width:50%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:60px;
+    color:#fff;
+}
+
+.toggle-left{
+    left:50%;
+    background:linear-gradient(135deg,#8d2b11,#ff5a1f);
+    clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);
+}
+
+.toggle-right{
+    left:-50%;
+    background:linear-gradient(135deg,#ff5a1f,#8d2b11);
+    clip-path:polygon(0 0,82% 0,100% 100%,0 100%);
+}
+
+.toggle-panel h1{
+    font-size:42px;
+    line-height:1.2;
+}
+
+.toggle-panel p{
+    margin-top:15px;
+    color:#f1f1f1;
+    line-height:1.6;
+}
+
+
+/*--------*/
+.features{
+
+    padding:80px 8%;
+    
+    }
+    
+    .title{
+    
+    margin-bottom:60px;
+    
+    }
+    
+    .title h2{
+    
+    font-size:42px;
+    
+    }
+
+    .cards{
+
+        display:grid;
+        
+        grid-template-columns:repeat(3,1fr);
+        
+        gap:30px;
+        
+        }
+
+        .card{
+
+            background:#1a1d28;
+            
+            padding:35px;
+            
+            border-radius:18px;
+            
+            border:1px solid rgba(255,255,255,.05);
+            
+            transition:.5s;
+            
+            position:relative;
+            
+            overflow:hidden;
+            
+            }
+
+            .card::before{
+
+                content:"";
+                
+                position:absolute;
+                
+                width:250px;
+                
+                height:250px;
+                
+                background:#ff5a1f;
+                
+                border-radius:50%;
+                
+                filter:blur(80px);
+                
+                top:-180px;
+                
+                right:-180px;
+                
+                opacity:0;
+                
+                transition:.5s;
+                
+                }
+                
+                .card:hover::before{
+                
+                opacity:.25;
+                
+                }
+
+                .card:hover{
+
+                    transform:translateY(-12px);
+                    
+                    border-color:#ff5a1f;
+                    
+                    box-shadow:0 15px 35px rgba(255,90,31,.25);
+                    
+                    }
+
+                    .card i{
+
+                        font-size:42px;
+                        
+                        color:#ff5a1f;
+                        
+                        margin-bottom:20px;
+                        
+                        }
+
+                        .card h3{
+
+                            font-size:26px;
+                            
+                            margin-bottom:15px;
+                            
+                            }
+                            
+                            .card p{
+                            
+                            color:#aaa;
+                            
+                            line-height:1.8;
+                            
+                            margin-bottom:30px;
+                            
+                            }
+                            
+                            .card a{
+                            
+                            color:#ff5a1f;
+                            
+                            font-weight:600;
+                            
+                            }

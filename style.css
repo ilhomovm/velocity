@@ -1,0 +1,304 @@
+/*=============== GOOGLE FONT ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*=============== RESET ===============*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#1f1d2b;
+    overflow:hidden;
+}
+
+/*=============== CONTAINER ===============*/
+
+.container{
+    position:relative;
+    width:850px;
+    height:550px;
+    background:#1f1d2b;
+    border:2px solid #ff5b1f;
+    overflow:hidden;
+    box-shadow:0 0 35px rgba(255,91,31,.35);
+}
+
+/*=============== ORANGE PANEL ===============*/
+
+.container::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-250px;
+    width:850px;
+    height:550px;
+    background:linear-gradient(135deg,#ff8844,#ff4d00);
+    transform:skewX(-35deg);
+    transform-origin:left;
+    transition:.8s ease-in-out;
+    z-index:1;
+}
+
+/*=============== FORM BOX ===============*/
+
+.form-box{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px;
+    z-index:2;
+}
+
+.form-box.login{
+    left:0;
+}
+
+.form-box.register{
+    right:0;
+    opacity:0;
+    pointer-events:none;
+}
+
+/*=============== FORM ===============*/
+
+form{
+    width:100%;
+}
+
+form h1{
+    color:#fff;
+    font-size:36px;
+    text-align:center;
+    margin-bottom:35px;
+}
+
+/*=============== INPUT ===============*/
+
+.input-box{
+    position:relative;
+    width:100%;
+    margin:28px 0;
+}
+
+.input-box input{
+    width:100%;
+    height:45px;
+    background:transparent;
+    border:none;
+    outline:none;
+    border-bottom:2px solid #9f9f9f;
+    color:#fff;
+    font-size:16px;
+    padding-right:35px;
+    transition:.35s;
+}
+
+.input-box input::placeholder{
+    color:#cfcfcf;
+}
+
+.input-box input:focus{
+    border-color:#ff6b2d;
+}
+
+.input-box i{
+    position:absolute;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+    color:#bdbdbd;
+    font-size:20px;
+}
+
+/*=============== BUTTON ===============*/
+
+.btn{
+    width:100%;
+    height:46px;
+    border:none;
+    outline:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#ff7a18,#ff4d00);
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:15px;
+    box-shadow:0 0 15px rgba(255,91,31,.4);
+}
+
+.btn:hover{
+    box-shadow:0 0 25px rgba(255,91,31,.8);
+}
+
+/*=============== LINKS ===============*/
+
+form p{
+    color:#fff;
+    text-align:center;
+    margin-top:20px;
+    font-size:14px;
+}
+
+form a{
+    color:#ff6b2d;
+    text-decoration:none;
+    font-weight:600;
+}
+
+form a:hover{
+    text-decoration:underline;
+}
+
+/*=============== INFO TEXT ===============*/
+
+.info{
+    position:absolute;
+    width:50%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    color:#fff;
+    z-index:3;
+    transition:.8s ease-in-out;
+}
+
+.login-info{
+    right:0;
+    text-align:right;
+    padding:0 60px 0 120px;
+}
+
+.register-info{
+    left:-50%;
+    text-align:left;
+    padding:0 120px 0 60px;
+    opacity:0;
+}
+
+.info h1{
+    font-size:42px;
+    font-weight:700;
+    line-height:1.2;
+    margin-bottom:15px;
+}
+
+.info p{
+    font-size:15px;
+    line-height:1.6;
+}
+
+/*=============== ACTIVE POSITION ===============*/
+
+.container.active::before{
+    left:250px;
+}
+
+.container.active .form-box.login{
+    transform:translateX(-100%);
+    opacity:0;
+    pointer-events:none;
+}
+
+.container.active .form-box.register{
+    transform:translateX(0);
+    opacity:1;
+    pointer-events:auto;
+}
+
+.container.active .login-info{
+    transform:translateX(100%);
+    opacity:0;
+}
+
+.container.active .register-info{
+    left:0;
+    opacity:1;
+}
+
+/*==========================
+    LOGIN ANIMATION
+==========================*/
+
+.form-box.login .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--i));
+}
+
+.container.active .form-box.login .animation{
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * (22 - var(--i)));
+}
+
+/*==========================
+    REGISTER ANIMATION
+==========================*/
+
+.form-box.register .animation{
+    transform: translateX(120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+}
+
+.container.active .form-box.register .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--i));
+}
+
+/*==========================
+    LOGIN INFO
+==========================*/
+
+.login-info .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--i));
+}
+
+.container.active .login-info .animation{
+    transform: translateX(120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * (6 - var(--i)));
+}
+
+/*==========================
+    REGISTER INFO
+==========================*/
+
+.register-info .animation{
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+}
+
+.container.active .register-info .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--i));
+}
